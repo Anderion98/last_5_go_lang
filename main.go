@@ -108,7 +108,11 @@ func (r Running) Calories() float64 {
 // Это переопределенный метод TrainingInfo() из Training.
 func (r Running) TrainingInfo() InfoMessage {
 	// вставьте ваш код ниже
-	return r.Training.TrainingInfo()
+	return InfoMessage{TrainingType: r.TrainingType,
+		Duration: r.Duration,
+		Distance: r.Training.distance(),
+		Speed:    r.Training.meanSpeed(),
+		Calories: r.Calories()}
 }
 
 // Константы для расчета потраченных килокалорий при ходьбе.
@@ -141,7 +145,11 @@ func (w Walking) Calories() float64 {
 // Это переопределенный метод TrainingInfo() из Training.
 func (w Walking) TrainingInfo() InfoMessage {
 	// вставьте ваш код ниже
-	return w.Training.TrainingInfo()
+	return InfoMessage{TrainingType: w.TrainingType,
+		Duration: w.Duration,
+		Distance: w.Training.distance(),
+		Speed:    w.Training.meanSpeed(),
+		Calories: w.Calories()}
 }
 
 // Константы для расчета потраченных килокалорий при плавании.
@@ -181,7 +189,11 @@ func (s Swimming) Calories() float64 {
 // Это переопределенный метод TrainingInfo() из Training.
 func (s Swimming) TrainingInfo() InfoMessage {
 	// вставьте ваш код ниже
-	return s.Training.TrainingInfo()
+	return InfoMessage{TrainingType: s.TrainingType,
+		Duration: s.Duration,
+		Distance: s.Training.distance(),
+		Speed:    s.Training.meanSpeed(),
+		Calories: s.Calories()}
 }
 
 // ReadData возвращает информацию о проведенной тренировке.
